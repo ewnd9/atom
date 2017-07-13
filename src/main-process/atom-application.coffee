@@ -134,7 +134,7 @@ class AtomApplication
       logFile, profileStartup, timeout, clearWindowState, addToLastWindow, env
     } = options
 
-    app.focus()
+    # app.focus()
 
     if test
       @runTests({
