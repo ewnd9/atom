@@ -74,16 +74,12 @@ describe('TextEditorElement', () => {
     expect(element.getModel().getText()).toBe('testing')
   })
 
-  describe('when the model is assigned', () =>
-    it("adds the 'mini' attribute if .isMini() returns true on the model", function (done) {
-      const element = buildTextEditorElement()
-      element.getModel().update({mini: true})
-      atom.views.getNextUpdatePromise().then(() => {
-        expect(element.hasAttribute('mini')).toBe(true)
-        done()
-      })
-    })
-  )
+  it("updates the 'mini' attribute if .isMini() is changed on the model", async () => {
+    const element = buildTextEditorElement()
+    element.getModel().update({mini: true})
+    await atom.views.getNextUpdatePromise()
+    expect(element.hasAttribute('mini')).toBe(true)
+  })
 
   describe('when the editor is attached to the DOM', () =>
     it('mounts the component and unmounts when removed from the dom', () => {
