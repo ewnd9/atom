@@ -225,7 +225,7 @@ class AtomApplication extends EventEmitter {
       env
     } = options
 
-    app.focus()
+    // app.focus()
 
     if (test) {
       return this.runTests({
